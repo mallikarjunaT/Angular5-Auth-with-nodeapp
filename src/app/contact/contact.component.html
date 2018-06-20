@@ -1,0 +1,55 @@
+
+
+<div>
+  <h3>Business Unit</h3>
+    <table class=" table table-bordered table-primary ">
+      <tr>
+        <th>S.no</th>
+        <th>nameOfTheCostCenter</th>
+        <th>nameOfTheBusinessUnit</th>
+        <th>Edit</th>
+      </tr>
+      <tr *ngFor="let z of businesslist let i=index">
+        <td>{{i+1}}</td>
+          <td> {{z.costCenterId.nameOfTheCostCenter}}</td>
+        <td> {{z.nameOfBusinessUnit}}</td>
+       
+        <td><span><i (click)="update(z.id)" data-toggle="modal" data-target="#myModal" data-backdrop="static" class="fa fa-edit" style="font-size:16px;color:green">edit</i></span></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="container">
+     
+      <!-- Trigger the modal with a button -->
+    
+    
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+        
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Update BusinessUnit</h4>
+            </div>
+            <div class="modal-body">
+              <label>nameOfBusinessUnit</label>
+                <input type="text" class="form-control" [(ngModel)]="nameOfBusinessUnit" name="name"><br>
+                <label>nameOfTheCostCenter</label>
+                <select class="form-control" [(ngModel)]="nameOfTheCostCenter" name="id">
+                    <option>Choose One</option>
+                    <option [value]="list.id" *ngFor="let list of list">{{list.nameOfTheCostCenter}}</option>
+                    </select>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" (click)="Save(list.id)">Save </button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+
