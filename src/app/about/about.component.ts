@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginserviceService } from '../login/loginservice.service';
+//import { LoginserviceService } from '../login/loginservice.service';
 
 
 @Component({
@@ -9,13 +9,10 @@ import { LoginserviceService } from '../login/loginservice.service';
 })
 export class AboutComponent implements OnInit {
   designationlist :any;
-  constructor(private loginserve:LoginserviceService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.loginserve.get_designation().subscribe(response=>{
-      this.designationlist=response.json().result;
-     console.log(this.designationlist);
-    })
+    
   }
 
 }

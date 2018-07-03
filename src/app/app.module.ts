@@ -6,12 +6,12 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ServicesComponent } from './services/services.component';
-import { ContactComponent } from './contact/contact.component';
-import { AboutComponent } from './about/about.component';
-import { ChildServiceComponent } from './child-service/child-service.component'
+
+//import { AboutComponent } from './about/about.component';
+import { ChildServiceComponent } from './child-service/child-service.component';
 import { LoginserviceService } from './login/loginservice.service';
 import {HttpModule} from '@angular/http';
+import { RegisterComponent } from './register/register.component';
 
 
 
@@ -21,17 +21,15 @@ import {HttpModule} from '@angular/http';
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    ServicesComponent,
-    ContactComponent,
-    AboutComponent,
-    ChildServiceComponent
+    ChildServiceComponent,    
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpModule,
-    ReactiveFormsModule
+    ReactiveFormsModule 
   ],
   providers: [LoginserviceService],
   bootstrap: [AppComponent]

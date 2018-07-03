@@ -1,42 +1,26 @@
 import { Injectable } from '@angular/core';
 import {Http,Headers} from '@angular/http';
+//import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LoginserviceService {
+export class LoginserviceService { 
   constructor(private http:Http) { }
   login(userdetails) {
-    debugger;
-    const headers = new Headers();
+    // debugger;
+    var headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
-    return this.http.post('http://192.168.1.255:8080/hrms/rest/user/authenticate', userdetails, { headers: headers });
+    
+    return this.http.post('http://localhost:2000/users/login'  , userdetails,{headers:headers});
     }
-
-    constcenter(){
-      return this.http.get('http://192.168.1.255:8080/hrms/rest/costcenter/findAll');
-    }
-
-    get_businessunit()
-    {
-      return this.http.get('http://192.168.1.255:8080/hrms/rest/businessUnit/findAll')
-    }
-    get_designation()
-    {
-      return this.http.get('http://192.168.1.255:8080/hrms/rest/Designation/findAllDesignation')
-    }
-    edit_businessunit(id)
-    {
-      return this.http.get('http://192.168.1.255:8080/hrms/rest/businessUnit/findByPrimaryKey/' +id)
-    }
-    getbyidcostcenter(id)
-    {
-      return this.http.get('http://192.168.1.255:8080/hrms/rest/costcenter/findById/' +id)
-    }
-    update_businessunit(bid,bunit)
-    {
+  
+    addreg(obj){
       debugger;
-      return this.http.put('http://192.168.1.255:8080/hrms/rest/businessUnit/update/' +bid,bunit)
+      var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    
+      return this.http.post('http://localhost:2000/users/register' ,obj,{headers:headers});
     }
 
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginserviceService } from './loginservice.service';
-import { FormControl, } from '@angular/forms';
+
 
 
 
@@ -20,12 +20,24 @@ export class LoginComponent implements OnInit {
   loginfun(){
     debugger;
     this.loading = true;
-    const userdetails='username='+this.model.username+'&password='+this.model.password;
+    const userdetails='email='+this.model.email+'&password='+this.model.password;
     this.loginservice.login(userdetails).subscribe(res=>{
+      debugger;
     this.details = res.json();
     console.log(this.details);
-    alert('login successfully')
-    this.router.navigateByUrl('dashboard');
+        
+    if(this.details =="Username not found")
+    {     
+      alert(this.details);
+    }
+    else if(this.details=="Incorrectusername password"){
+      alert(this.details);
+    }
+    else
+    {
+      this.router.navigateByUrl('dashboard'); 
+    }
+    
     })     
   }
   
